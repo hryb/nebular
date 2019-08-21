@@ -18,6 +18,7 @@ import {
   RouteTabsetShowcaseChild2Component,
 } from './components/route-tabset-children.component';
 import { TabsetDisabledComponent } from './tabset-disabled.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { TabsetDisabledComponent } from './tabset-disabled.component';
     TabsetDisabledComponent,
   ],
   imports: [
+    CommonModule,
     NbTabsetModule,
     NbRouteTabsetModule,
     NbCardModule,

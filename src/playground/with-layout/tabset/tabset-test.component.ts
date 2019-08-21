@@ -130,6 +130,21 @@ import { Router } from '@angular/router';
         <span>Content #5</span>
       </nb-tab>
     </nb-tabset>
+    <nb-tabset (changeTab)="changeTabWithId($event)">
+      <nb-tab tabTitle="Tab #1" tabId="tab1">
+        <span>Content #1</span>
+      </nb-tab>
+      <nb-tab tabTitle="Tab #2" tabId="tab2">
+        <span>Content #2</span>
+      </nb-tab>
+      <nb-tab tabTitle="Tab #3" tabId="tab3">
+        <span>Content #3</span>
+      </nb-tab>
+      <nb-tab tabTitle="Tab #4" tabId="tab4">
+        <span>Content #4</span>
+      </nb-tab>
+    </nb-tabset>
+    <div *ngIf="isTab3Active">Tab 3 was chosen</div>
     <nb-tabset>
       <nb-tab tabTitle="Tab #1">
         <span>Content #1</span>
@@ -148,10 +163,16 @@ import { Router } from '@angular/router';
 })
 export class TabsetTestComponent {
 
+  isTab3Active: boolean = false;
+
   constructor(private router: Router) {
   }
 
   changeTab($event: any) {
     this.router.navigate(['tabset', 'tabset-test.component', $event.route]);
+  }
+
+  changeTabWithId($event: any) {
+    this.isTab3Active = $event.tabId === 'tab3';
   }
 }
